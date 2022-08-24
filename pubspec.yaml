@@ -1,0 +1,32 @@
+name: tddpractice
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^1.0.4
+  dartz: ^0.10.1
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  mocktail: 
+  flutter_lints: ^2.0.0
+  alchemist: ^0.3.3
+
+flutter:
+  generate: true
+  uses-material-design: true
