@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:tddpractice/feature/trivia/domain/repository/i_number_trivia_repository.dart';
 import 'package:tddpractice/feature/trivia/infrastructure/datasource/local/i_number_trivia_local_datasource.dart';
 import 'package:tddpractice/feature/trivia/infrastructure/datasource/remote/i_number_trivia_remote_datasource.dart';
+import 'package:tddpractice/feature/trivia/infrastructure/dto/number_trivia_dto.dart';
 
 class NumberTriviaRepository implements INumberTriviaRepository {
   NumberTriviaRepository({
@@ -23,9 +24,19 @@ class NumberTriviaRepository implements INumberTriviaRepository {
   @override
   Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(
       int number) async {
+    return _getTrivia(() => _remote.getConcreteNumberTrivia(number));
+  }
+
+  @override
+  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia() async {
+    return _getTrivia(() => _remote.getRandomNumberTrivia());
+  }
+
+  Future<Either<Failure, NumberTrivia>> _getTrivia(
+      Future<NumberTriviaDto> Function() getConcreteOrRandom) async {
     if (await _network.isOnline) {
       try {
-        final results = await _remote.getConcreteNumberTrivia(number);
+        final results = await getConcreteOrRandom();
         _local.cacheNumberTrivia(results);
         return Right(results.toDomain());
       } on ServerException {
@@ -39,11 +50,5 @@ class NumberTriviaRepository implements INumberTriviaRepository {
         return const Left(CacheFailure());
       }
     }
-  }
-
-  @override
-  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia() {
-    // TODO: implement getRandomNumberTrivia
-    throw UnimplementedError();
   }
 }
