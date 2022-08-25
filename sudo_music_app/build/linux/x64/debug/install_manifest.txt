@@ -1,0 +1,12 @@
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/patternify
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/assets/music_collections_data.json
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/assets/songs_data.json
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
+/home/ubuntu/projects/patternify/build/linux/x64/debug/bundle/data/flutter_assets/version.json
