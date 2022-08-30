@@ -1,5 +1,5 @@
 import 'package:tddpractice/core/domain/entity/exception.dart';
-import 'package:tddpractice/core/infrastructure/network_info.dart';
+import 'package:tddpractice/core/infrastructure/i_network_info.dart';
 import 'package:tddpractice/feature/trivia/domain/entity/number_trivia.dart';
 import 'package:tddpractice/core/domain/entity/failure.dart';
 import 'package:dartz/dartz.dart';
@@ -10,14 +10,14 @@ import 'package:tddpractice/feature/trivia/infrastructure/dto/number_trivia_dto.
 
 class NumberTriviaRepository implements INumberTriviaRepository {
   NumberTriviaRepository({
-    required NetworkInfo network,
+    required INetworkInfo network,
     required INumberTriviaLocalDataSource local,
     required INumberTriviaRemoteDatasource remote,
   })  : _network = network,
         _local = local,
         _remote = remote;
 
-  final NetworkInfo _network;
+  final INetworkInfo _network;
   final INumberTriviaLocalDataSource _local;
   final INumberTriviaRemoteDatasource _remote;
 
