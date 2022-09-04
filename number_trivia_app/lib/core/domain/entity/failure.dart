@@ -7,3 +7,7 @@ class ServerFailure implements Failure {
 class CacheFailure implements Failure {
   const CacheFailure();
 }
+
+class InvalidInputFailure implements Failure {
+  const InvalidInputFailure();
+}
