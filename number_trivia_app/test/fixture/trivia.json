@@ -1,4 +1,7 @@
 {
     "number":1,
-    "text":"test"
+    "text":"test",
+    "found":true,
+    "type":"trivia"
+
 }
