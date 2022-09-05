@@ -18,21 +18,25 @@ class NumberTriviaStateNotifier extends StateNotifier<NumberTriviaState> {
   final InputConverter inputConverter;
 
   Future<void> mapEventToState(NumberTriviaEvent event) async {
-    if (event is GetTriviaForConcreteNumber) {
-      final failureOrNumber =
-          inputConverter.stringToUnsignedNumber(event.rawNumberString);
-      failureOrNumber.fold(
-        (l) => state = NumberTriviaState.failure(mapFailureToMessage(l)),
-        (r) async {
-          final failureOrTrivia = await concreteUsecase(r);
+    switch (event.runtimeType) {
+      case GetTriviaForConcreteNumber:
+        final failureOrNumber = inputConverter.stringToUnsignedNumber(
+            (event as GetTriviaForConcreteNumber).rawNumberString);
+        failureOrNumber.fold(
+          (l) => state = NumberTriviaState.failure(mapFailureToMessage(l)),
+          (r) async {
+            final failureOrTrivia = await concreteUsecase(r);
 
-          state = failureOrTrivia.fold(
-            (l) => NumberTriviaState.failure(mapFailureToMessage(l)),
-            (r) => NumberTriviaState.loaded(r),
-          );
-        },
-      );
-    } else if (event is GetTriviaForRandomNumber) {}
+            state = failureOrTrivia.fold(
+              (l) => NumberTriviaState.failure(mapFailureToMessage(l)),
+              (r) => NumberTriviaState.loaded(r),
+            );
+          },
+        );
+        break;
+      case GetTriviaForRandomNumber:
+        break;
+    }
   }
 }
 
